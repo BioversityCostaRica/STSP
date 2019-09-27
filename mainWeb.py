@@ -160,7 +160,6 @@ def main():
 
                 for x in range(ini, fin):
                     datesRequired.append(str(year)+'-'+str(x)+'-01')
-                    #print(str(year)+'-'+str(x)+'-01')
 
             uniqueId = str(uuid.uuid4())
             downloadData(datesRequired,user, password, directory, country, uniqueId)
@@ -170,6 +169,7 @@ def main():
                 os.makedirs(output)
 
             shutil.make_archive(output+'/'+country+"Data",'zip', directory+ "/"+uniqueId+"/"+country+"Data")
+            print("**************Download completed*************")
         else:
             sep = ", "
             print("PARSE ERROR:")
