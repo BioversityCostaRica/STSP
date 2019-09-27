@@ -131,7 +131,12 @@ def main():
             directory = a
         elif o in ("-o", "--output"):
             optsRequired.remove("[-o --output]")
-            output = a
+            if a[-4:] == ".zip":
+                output = a
+            else:
+                print("")
+                print("Error parameter -o: The output have to finish in '.zip'. Example: YOUR/PATH/FOR/output.zip")
+                sys.exit(1)
         else:
             assert False, "unhandled option"
 
@@ -164,11 +169,8 @@ def main():
             uniqueId = str(uuid.uuid4())
             downloadData(datesRequired,user, password, directory, country, uniqueId)
 
-            print("**********Creating output directory**********")
-            if not os.path.exists(output):
-                os.makedirs(output)
-
-            shutil.make_archive(output+'/'+country+"Data",'zip', directory+ "/"+uniqueId+"/"+country+"Data")
+            print("**********Creating output zip**********")
+            shutil.make_archive(output[:-4],'zip', directory+ "/"+uniqueId+"/"+country+"Data")
             print("**************Download completed*************")
         else:
             sep = ", "

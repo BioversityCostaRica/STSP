@@ -93,7 +93,7 @@ def downloadData(listOfRequired, user, password, localPath, country, uuid):
                                     p = run(args, stdout=PIPE, encoding='ascii')
                                     if p.returncode == 0:
                                         print("*******Done processing with GDAL")
-                                        importDataSet(required,pathOutputForASC+"/ndvi.asc",country)
+                                        #importDataSet(required,pathOutputForASC+"/ndvi.asc",country)
                                         os.system("cp " + pathOutputForASC+"/ndvi.asc" + " " + pathForProcessed+"/"+required+".asc")
                                         print("")
                                         print("")
