@@ -30,7 +30,7 @@ def downloadData(listOfRequired, user, password, localPath, country, uuid):
                 os.makedirs(pathOutputForHDF)
                 #print("aqui")
 
-            args = ['./Daac2Disk_ubuntu', '--shortname', 'MOD13A3', '--versionid', '006', '--begin',
+            args = ['./Daac2Disk_ubuntu', '--shortname', 'MOD13A3', '--versionid', '006','--browse', '--begin',
                     workingWithDate.strftime("%Y-%m-%d"),
                     '--end', workingWithDate.strftime("%Y-%m-%d"), '--bbox', box_array[0], box_array[1], box_array[2],
                     box_array[3],
